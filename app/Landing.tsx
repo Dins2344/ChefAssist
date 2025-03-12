@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 
 export default function Landing() {
@@ -19,10 +19,17 @@ export default function Landing() {
           {
               imageList.map((image,i) => {
                   return (
-                      <Image key={i} source={image}></Image>
+                      <Image style={styles.image} key={i} source={image}></Image>
                   )
               })
           }
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    image: {
+        width: 160,
+        height : 160
+    }
+})

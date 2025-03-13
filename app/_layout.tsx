@@ -3,7 +3,7 @@ import { useFonts } from "expo-font";
 
 export default function RootLayout() {
   const [font, setFont] = useFonts({
-    roboto: require("../assets/fonts/Roboto-Regular.ttf"),
+    "roboto": require("../assets/fonts/Roboto-Regular.ttf"),
     "roboto-bold": require("../assets/fonts/Roboto-Bold.ttf"),
   });
   return (

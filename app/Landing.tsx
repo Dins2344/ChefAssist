@@ -1,8 +1,8 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Marquee } from "@animatereactnative/marquee";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-
+import Colors from "@/utils/Colors";
 export default function Landing() {
   const imageList = [
     require("../assets/images/landingPage/1.jpg"),
@@ -34,7 +34,7 @@ export default function Landing() {
         </Marquee>
         <Marquee
           spacing={10}
-          speed={.5}
+          speed={0.5}
           style={{ transform: [{ rotate: "-4deg" }] }}
         >
           <View style={styles.imageContainer}>
@@ -47,7 +47,7 @@ export default function Landing() {
         </Marquee>
         <Marquee
           spacing={10}
-          speed={.7}
+          speed={0.7}
           style={{ transform: [{ rotate: "-4deg" }] }}
         >
           <View style={styles.imageContainer}>
@@ -58,6 +58,27 @@ export default function Landing() {
             })}
           </View>
         </Marquee>
+      </View>
+      <View
+        style={{
+          height: "100%",
+          backgroundColor:Colors.WHITE,
+          padding: 12,
+        }}
+      >
+        <Text
+          style={{ fontSize: 30, textAlign: "center",fontFamily:"roboto-bold" }}
+        >
+          Chef Assist ai 🍝🥗 | Find, Create and Enjoy Delicious Recipes!
+        </Text>
+        <Text
+          style={{  fontSize: 18, textAlign: "center" }}
+        >
+          Generate delicious recipes in seconds with the power of AI 👨‍🍳
+        </Text>
+        <TouchableOpacity  style = {styles.button} onPress={()=>console.log('buttonPressed')}>
+          <Text style={{ textAlign: "center", color: Colors.WHITE,fontFamily:"roboto"}}>Get Started</Text>
+        </TouchableOpacity>
       </View>
     </GestureHandlerRootView>
   );
@@ -75,4 +96,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
   },
+  button: {
+    marginTop:20,
+    borderRadius: 10,
+    backgroundColor: Colors.PRIMARY,
+    padding : 10
+  }
 });

@@ -3,7 +3,12 @@ import React from "react";
 import { Marquee } from "@animatereactnative/marquee";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Colors from "@/utils/Colors";
+import { useLogto } from "@logto/rn";
+
+
 export default function Landing() {
+  const { signIn } = useLogto();
+
   const imageList = [
     require("../assets/images/landingPage/1.jpg"),
     require("../assets/images/landingPage/c2.jpg"),
@@ -16,6 +21,7 @@ export default function Landing() {
     require("../assets/images/landingPage/5.jpg"),
     require("../assets/images/landingPage/6.jpg"),
   ];
+
   return (
     <GestureHandlerRootView>
       <View>
@@ -76,7 +82,10 @@ export default function Landing() {
         >
           Generate delicious recipes in seconds with the power of AI 👨‍🍳
         </Text>
-        <TouchableOpacity  style = {styles.button} onPress={()=>console.log('buttonPressed')}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={async () => signIn('chefassist://callback')}
+        >
           <Text style={{ textAlign: "center", color: Colors.WHITE,fontFamily:"roboto"}}>Get Started</Text>
         </TouchableOpacity>
       </View>
